@@ -74,6 +74,10 @@ class FileStorage extends AbstractStorage
                 $stat = stat($file);
                 $buf['size'] = $stat['size'];
 
+                // Augment file data
+                $buf['timestamp'] = $stat['ctime'];
+                $buf['namespace'] = $pi['filename'];
+
                 $bufFiles[] = $buf;
                 $total++;
             }
